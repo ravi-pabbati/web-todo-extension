@@ -130,15 +130,26 @@ async function displayTodos() {
 
 // Function to switch tabs
 function switchTab(event) {
+  // Always get the parent tab element
+  const tabElement = event.target.closest('.tab');
+  if (!tabElement) return; // Safety check
+
   // Remove active class from all tabs and content
   document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-  
+
   // Add active class to clicked tab and corresponding content
-  event.target.classList.add('active');
-  const priority = event.target.dataset.priority;
-  document.getElementById(`${priority}List`).classList.add('active');
+  tabElement.classList.add('active');
+  const priority = tabElement.dataset.priority;
+  const priorityList = document.getElementById(`${priority}List`);
+
+  if (priorityList) {
+    priorityList.classList.add('active');
+  } else {
+    console.error(`No element found for ID: ${priority}List`);
+  }
 }
+
 
 // Add event listeners
 document.addEventListener('DOMContentLoaded', () => {
