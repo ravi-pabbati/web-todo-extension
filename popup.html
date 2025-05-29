@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <style>
+      body {
+        width: 400px;
+        padding: 16px;
+        min-height: 300px;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+        background: #ffffff;
+      }
+      select, button {
+        margin: 5px 0;
+      }
+      /* Form styles */
+      #addTodoForm {
+        padding: 16px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+
+      select {
+        padding: 8px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        margin-right: 8px;
+        background: white;
+      }
+
+      button {
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        background: #1a73e8;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background: #1557b0;
+      }
+
+      /* Tab styles */
+      .tabs {
+        display: flex;
+        margin: 0 0 16px 0;
+        position: relative;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .tab {
+        padding: 12px 24px;
+        cursor: pointer;
+        color: #5f6368;
+        position: relative;
+        transition: color 0.2s;
+        font-weight: 500;
+        background: transparent;
+        border: none;
+        text-align: center;
+        flex: 1;
+      }
+
+      .tab:hover {
+        color: #1a73e8;
+      }
+
+      .tab.active {
+        color: #1a73e8;
+      }
+
+      .tab.active::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #1a73e8;
+        transition: all 0.2s ease;
+      }
+
+      /* Tab count styles */
+      .tab-count {
+        display: inline-block;
+        background: #e8eaed;
+        color: #5f6368;
+        border-radius: 12px;
+        padding: 2px 8px;
+        font-size: 12px;
+        margin-left: 6px;
+        min-width: 16px;
+        text-align: center;
+      }
+
+      .tab.active .tab-count {
+        background: #e8f0fe;
+        color: #1a73e8;
+      }
+
+      /* Content styles */
+      .tab-content {
+        display: none;
+        padding: 8px 0;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      /* Todo item styles */
+      .todo-item {
+        margin: 8px 0;
+        padding: 12px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        transition: box-shadow 0.2s, transform 0.2s;
+        animation: slideIn 0.3s ease-out;
+      }
+
+      .todo-item:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        transform: translateY(-1px);
+      }
+
+      .todo-link {
+        flex-grow: 1;
+        margin-right: 12px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #202124;
+        max-width: calc(100% - 70px);
+      }
+
+      .todo-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .todo-title {
+        color: #202124;
+        font-weight: 500;
+      }
+
+      .todo-hostname {
+        color: #5f6368;
+        font-size: 0.9em;
+      }
+
+      .favicon {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+        object-fit: contain;
+      }
+
+      /* Delete button */
+      .todo-item button {
+        padding: 6px 12px;
+        background: #f1f3f4;
+        color: #5f6368;
+        font-size: 13px;
+      }
+
+      .todo-item button:hover {
+        background: #e8eaed;
+        color: #202124;
+      }
+
+      h2 {
+        color: #202124;
+        font-size: 18px;
+        margin: 0 0 16px 0;
+        font-weight: 500;
+      }
+
+      /* Animation for new items */
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Web TODO</h2>
+    <div id="addTodoForm">
+      <select id="priority">
+        <option value="P1">P1</option>
+        <option value="P2">P2</option>
+        <option value="P3">P3</option>
+      </select>
+      <button id="saveButton">Save Current URL</button>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-priority="P1">P1<span class="tab-count" id="P1Count">0</span></div>
+      <div class="tab" data-priority="P2">P2<span class="tab-count" id="P2Count">0</span></div>
+      <div class="tab" data-priority="P3">P3<span class="tab-count" id="P3Count">0</span></div>
+    </div>
+    <div id="todoList">
+      <div id="P1List" class="tab-content active"></div>
+      <div id="P2List" class="tab-content"></div>
+      <div id="P3List" class="tab-content"></div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
