@@ -10,6 +10,7 @@ A Chrome extension that helps you organize web pages as TODOs with different pri
 - Quick access to saved pages
 - Local storage for persistence
 - Delete TODOs when completed
+- Edit priority levels via hover menu
 
 ## How to Use
 
@@ -18,7 +19,7 @@ A Chrome extension that helps you organize web pages as TODOs with different pri
 3. Click "Save" to add the current page as a TODO
 4. Switch between priority tabs to view your TODOs
 5. Click on a TODO to open the page in a new tab
-6. Use the "Delete" button to remove completed TODOs
+6. Hover over a TODO to reveal priority editing and delete options
 
 ## Technical Details
 
