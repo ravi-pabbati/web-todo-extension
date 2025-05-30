@@ -8,11 +8,13 @@
     "default_popup": "popup.html",
     "default_icon": {
       "48": "web-todo-icon.png",
-      "96": "web-todo-icon.png"
+      "96": "web-todo-icon.png",
+      "128": "web-todo-icon-128.png"
     }
   },
   "icons": {
     "48": "web-todo-icon.png",
-    "96": "web-todo-icon.png"
+    "96": "web-todo-icon.png",
+    "128": "web-todo-icon-128.png"
   }
 }
