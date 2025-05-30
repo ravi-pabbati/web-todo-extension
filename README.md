@@ -12,6 +12,8 @@ A Chrome extension that helps you organize web pages as TODOs with different pri
 - Delete TODOs when completed
 - Edit priority levels via hover menu
 
+![Extension Interface](screenshot1.png)
+
 ## How to Use
 
 1. Click on the extension icon in your Chrome browser
